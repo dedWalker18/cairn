@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Cairn
+Comment=Find anything by describing it
+Exec=cairn-gui
+Icon=system-search
+Terminal=false
+Categories=Utility;FileTools;
+Keywords=search;find;files;semantic;

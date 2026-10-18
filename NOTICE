@@ -1,0 +1,27 @@
+Cairn
+Copyright 2026 dedWalker18 and Cairn contributors. Licensed under Apache-2.0.
+
+This repository includes third-party material:
+
+* crates/cairn-ml/src/clip/  — CLIP text/vision towers vendored from
+  candle-transformers 0.11 (https://github.com/huggingface/candle),
+  MIT OR Apache-2.0, Copyright the candle authors. Modified: configurable text
+  activation (exact GELU), towers loadable separately. See docs/MODELS.md.
+
+* nautilus/vendor/libnautilus-extension/  — public extension API headers from
+  GNOME Nautilus 46.4 (https://gitlab.gnome.org/GNOME/nautilus),
+  LGPL-2.1-or-later, unmodified. Used only to compile the extension, which
+  links dynamically against the system libnautilus-extension.
+
+* crates/cairn-gui/fonts/Fraunces.ttf, Nunito.ttf  — SIL Open Font License 1.1
+  (license texts alongside). Embedded in the cairn-gui binary.
+
+* docs/screenshots/  — contain thumbnails of Wikimedia Commons photos; see
+  docs/screenshots/CREDITS.md for authors and licenses.
+
+Models are not included. `cairn models fetch` downloads (MIT-licensed):
+  BAAI/bge-small-en-v1.5 (int8 ONNX export by Xenova) and
+  laion/CLIP-ViT-B-32-laion2B-s34B-b79K. See docs/MODELS.md.
+
+ONNX Runtime (MIT, Microsoft) is linked statically into cairnd via the `ort`
+crate (MIT OR Apache-2.0).

@@ -1,0 +1,28 @@
+[Unit]
+Description=Cairn local semantic file search
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/cairnd
+Restart=on-failure
+RestartSec=15
+# Background indexing threads and workers run at SCHED_IDLE + idle I/O on
+# their own; these limits are a second fence around the whole service.
+CPUWeight=50
+IOWeight=20
+MemoryHigh=2G
+MemoryMax=3G
+TasksMax=128
+UMask=0077
+NoNewPrivileges=yes
+# Airgap guarantee at the service level: only Unix sockets, no network.
+RestrictAddressFamilies=AF_UNIX
+LockPersonality=yes
+RestrictRealtime=yes
+RestrictNamespaces=yes
+SystemCallArchitectures=native
+Environment=CAIRN_LOG=info
+TimeoutStopSec=20
+
+[Install]
+WantedBy=default.target

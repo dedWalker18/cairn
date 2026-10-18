@@ -1,0 +1,6 @@
+/target
+*.so
+*.o
+/tests/nautilus/load_test
+# local assistant notes
+CLAUDE.md
