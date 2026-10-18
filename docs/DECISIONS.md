@@ -628,6 +628,22 @@ scan had been counted. Fixes:
 * the stats thread is woken when the scan finishes and when the pipeline runs
   out of work, so "idle" appears within seconds instead of up to 20 s.
 
+### D-064 Public release hygiene
+Accepted.
+* Personal details were scrubbed from code, tests and docs: owner folder and
+  file names, timezone, usernames.
+* Commits use the GitHub no-reply address.
+* Local assistant notes (`CLAUDE.md`) are git-ignored.
+* Models are not committed: they are fetched and hash-verified by
+  `cairn models fetch`.
+
+Screenshots are produced by `cairn-gui --snapshot FILE`. The app renders its
+own widget tree to PNG on a private broadway display (`gtk4-broadwayd`) against
+the synthetic demo home, so a screenshot can never contain other windows or real
+files. This replaced screen capture, which leaked the owner's desktop in a
+first attempt (deleted before any commit). Demo photo credits are in
+docs/screenshots/CREDITS.md.
+
 ---
 
 ## Open questions (owner's call)
